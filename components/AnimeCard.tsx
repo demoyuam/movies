@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import { MotionDiv } from "./Motion";
 
 const stagger = 0.25;
