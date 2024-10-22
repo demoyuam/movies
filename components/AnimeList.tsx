@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
 
 interface AnimeListProps {
@@ -8,19 +8,20 @@ interface AnimeListProps {
 }
 
 function AnimeList({ initialData }: AnimeListProps) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sortOption, setSortOption] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOption, setSortOption] = useState("");
+  const [animeData, setAnimeData] = useState<AnimeProp[]>(initialData);
 
-  const filteredData = initialData.filter((anime) =>
+  const filteredData = animeData.filter((anime) =>
     anime.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const sortedData = filteredData.sort((a, b) => {
-    if (sortOption === 'name') {
+    if (sortOption === "name") {
       return a.name.localeCompare(b.name);
-    } else if (sortOption === 'score') {
+    } else if (sortOption === "score") {
       return parseFloat(b.score) - parseFloat(a.score);
-    } else if (sortOption === 'episodes') {
+    } else if (sortOption === "episodes") {
       return (b.episodes || 0) - (a.episodes || 0);
     }
     return 0;
