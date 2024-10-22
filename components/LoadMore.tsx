@@ -21,7 +21,7 @@ function LoadMore() {
       <div className="flex justify-center items-center w-full">
         <Image
           src="/spinner.svg"
-          alt="spinner"
+          alt="Loading spinner"
           width={56}
           height={56}
           className="object-contain"
