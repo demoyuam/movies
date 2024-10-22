@@ -1,17 +1,14 @@
-import { fetchAnime } from "./action";
-import LoadMore from "../components/LoadMore";
-import AnimeList from "../components/AnimeList";
+import { fetchMovies } from "./action";
+import MovieList from "../components/MovieList";
 
 async function Home() {
-  const data = await fetchAnime(1);
+  const data = await fetchMovies();
 
   return (
     <main className="sm:p-16 py-16 px-8 flex flex-col gap-10">
-      <h2 className="text-3xl text-white font-bold">Explore Anime</h2>
+      <h2 className="text-3xl text-white font-bold">Исследуйте Фильмы</h2>
 
-      <AnimeList initialData={data} />
-
-      <LoadMore />
+      <MovieList initialData={data} />
     </main>
   );
 }
