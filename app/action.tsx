@@ -15,7 +15,7 @@ export async function fetchMovies(): Promise<MovieProp[]> {
   const response = await fetch(url, options);
 
   if (!response.ok) {
-    throw new Error('Ошибка при получении данных');
+    throw new Error('Error fetching data');
   }
 
   const data = await response.json();
