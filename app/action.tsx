@@ -7,7 +7,7 @@ export async function fetchMovies(): Promise<MovieProp[]> {
   const options = {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': 'ВАШ_RAPIDAPI_KEY',
+      'x-rapidapi-key': '48cdfd658fmsh5eaf69f5f14797bp17ba54jsndf41e084a797',
       'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
     }
   };
