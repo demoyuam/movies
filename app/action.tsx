@@ -1,15 +1,23 @@
 "use server";
 
-import { AnimeProp } from "@/components/AnimeCard";
+import { MovieProp } from "@/components/MovieCard";
 
-const MAX_LIMIT = 8;
+export async function fetchMovies(): Promise<MovieProp[]> {
+  const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': 'ВАШ_RAPIDAPI_KEY',
+      'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+    }
+  };
 
-export async function fetchAnime(page: number): Promise<AnimeProp[]> {
-  const response = await fetch(
-    `https://shikimori.one/api/animes?page=${page}&limit=${MAX_LIMIT}&order=popularity`
-  );
+  const response = await fetch(url, options);
+
+  if (!response.ok) {
+    throw new Error('Ошибка при получении данных');
+  }
 
   const data = await response.json();
-
   return data;
 }
